@@ -1,7 +1,11 @@
 ## About the ZUBR bot
 A model trading bot for the [ZUBR cryptocurrency derivative trading platform](https://zubr.io/). Includes connector classes that provide an abstracted interface to APIs [for receiving market data](https://spec.zubr.io/#websocket-subscriptions) and [for placing trade orders](https://spec.zubr.io/#byson-trading-protocol), as well as a working bot that uses them to execute a basic trading strategy.
 ### Running the bot
-The bot is a non-user-interactive command line application. It requires a json configuration file to specify its numerous connection and strategy parameters, illustrated [here](https://github.com/sterlinb/zubr-bot/wiki/Example-bot-configuration-file).
+The bot is a non-user-interactive command line application. It requires a json configuration file to specify its numerous connection and strategy parameters, illustrated [here](https://github.com/sterlinb/zubr-bot/wiki/Example-bot-configuration-file). If you have downloaded the release jar file, placed the dependency jar files in /lib, and placed any classpath properties files (see Logging below) in /res, the bot may be run with the command:
+```
+java -cp zubr-bot-1.0.0.j:lib/*:res com.zubr.bot.ExampleZUBRRobot robotconfig.json
+```
+(If logging is not directed to a file, this may produce a large amount of output to the console.)
 #### Getting the bot something to talk to
 To connect the bot to a live testing server to place trades requires an account with ZUBR and obtaining an IP-specific login ID. This repository includes a simple dummy server creatively named DummyBYSONServer which can accept a connection and acknowledge basic trading messages, sufficient for the bot to run, but does not test message validity or simulate the complexities of the active trading environment.
 ### Bot Behavior
